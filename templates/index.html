@@ -14,19 +14,19 @@
       rel="stylesheet"
     />
 
-    <title>Reflux HTML CSS Template</title>
+    <title>Profile Page</title>
 <!--
 Reflux Template
 https://templatemo.com/tm-531-reflux
 -->
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" />
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css" />
-    <link rel="stylesheet" href="assets/css/templatemo-style.css" />
-    <link rel="stylesheet" href="assets/css/owl.css" />
-    <link rel="stylesheet" href="assets/css/lightbox.css" />
+    <link rel="stylesheet" href="{% static 'css/fontawesome.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/templatemo-style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/owl.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/lightbox.css' %}" />
   </head>
 
   <body>
@@ -38,7 +38,7 @@ https://templatemo.com/tm-531-reflux
           <i class="fa fa-times" id="menu-close"></i>
           <div class="container">
             <div class="image">
-              <a href="#"><img src="assets/images/author-image.jpg" alt="" /></a>
+              <a href="#"><img src="{% static 'images/author-image.jpg' %}" alt="" /></a>
             </div>
             <div class="author-content">
               <h4>Reflux Me</h4>
@@ -133,7 +133,7 @@ https://templatemo.com/tm-531-reflux
               </div>
               <div class="col-md-6">
                 <div class="right-image">
-                  <img src="assets/images/right-image.jpg" alt="" />
+                  <img src="{% static 'images/right-image.jpg' %}" alt="" />
                 </div>
               </div>
             </div>
@@ -451,13 +451,13 @@ https://templatemo.com/tm-531-reflux
 
     <!-- Scripts -->
     <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
-    <script src="assets/js/isotope.min.js"></script>
-    <script src="assets/js/owl-carousel.js"></script>
-    <script src="assets/js/lightbox.js"></script>
-    <script src="assets/js/custom.js"></script>
+    <script src="{% static 'js/isotope.min.js' %}"></script>
+    <script src="{% static 'js/owl-carousel.js' %}"></script>
+    <script src="{% static 'js/lightbox.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
     <script>
       //according to loftblog tut
       $(".main-menu li:first").addClass("active");
