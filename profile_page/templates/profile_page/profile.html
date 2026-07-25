@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پروفایل کاربری</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- آیکون‌های FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- نوبار اصلی -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <i class="fa-solid fa-layer-group"></i>
+            <span>سامانه مدیریت</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">صفحه اصلی</a>
+            <a href="profile.html" class="nav-link active">پروفایل</a>
+        </div>
+
+        <!-- بخش منوی عمودی کاربر -->
+        <div class="user-menu-container">
+            <button class="user-menu-btn" id="userMenuBtn">
+                <div class="avatar-wrapper">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150" alt="عکس کاربر" class="avatar-sm" id="navAvatar">
+                    <span class="status-indicator"></span>
+                </div>
+                <div class="user-info-text">
+                    <span class="user-name" id="navUserName">طاها عالم</span>
+                    <span class="user-role">توسعه‌دهنده سیستم</span>
+                </div>
+                <i class="fa-solid fa-chevron-down arrow-icon"></i>
+            </button>
+
+            <!-- منوی عمودی کشویی -->
+            <div class="dropdown-menu" id="dropdownMenu">
+                <div class="dropdown-header">
+                    <span class="dh-title">حساب کاربری</span>
+                    <span class="dh-email" id="navEmail">taha@example.com</span>
+                </div>
+                <div class="dropdown-divider"></div>
+                <a href="profile.html" class="dropdown-item">
+                    <i class="fa-regular fa-user"></i>
+                    <span>مشاهده و ویرایش پروفایل</span>
+                </a>
+                <a href="#security" class="dropdown-item" onclick="switchTab('security-tab')">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>امنیت و رمز عبور</span>
+                </a>
+                <a href="#settings" class="dropdown-item" onclick="switchTab('notifications-tab')">
+                    <i class="fa-regular fa-bell"></i>
+                    <span>تنظیمات اعلانات</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#logout" class="dropdown-item logout">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>خروج از حساب</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- محتوای اصلی صفحه پروفایل -->
+    <main class="main-container">
+        <!-- بنر بالای پروفایل -->
+        <div class="profile-header-card">
+            <div class="cover-image"></div>
+            <div class="profile-header-content">
+                <div class="avatar-upload-container">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300" alt="عکس پروفایل" class="avatar-lg" id="profileAvatarPreview">
+                    <label for="avatarInput" class="avatar-upload-btn" title="تغییر عکس پروفایل">
+                        <i class="fa-solid fa-camera"></i>
+                    </label>
+                    <input type="file" id="avatarInput" accept="image/*" style="display: none;">
+                </div>
+                <div class="header-user-details">
+                    <h2 id="headerFullName">طاها عالم</h2>
+                    <p id="headerBio">توسعه‌دهنده فرانت‌اند و علاقه‌مند به طراحی رابط کاربری</p>
+                    <div class="badges">
+                        <span class="badge badge-primary"><i class="fa-solid fa-check-circle"></i> حساب تأییدشده</span>
+                        <span class="badge badge-secondary"><i class="fa-solid fa-code"></i> برنامه‌نویس</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- تب‌های مدیریت پروفایل -->
+            <div class="profile-tabs">
+                <button class="tab-btn active" onclick="switchTab('info-tab', this)">
+                    <i class="fa-regular fa-id-card"></i> اطلاعات شخصی
+                </button>
+                <button class="tab-btn" onclick="switchTab('security-tab', this)">
+                    <i class="fa-solid fa-lock"></i> امنیت و رمز عبور
+                </button>
+                <button class="tab-btn" onclick="switchTab('notifications-tab', this)">
+                    <i class="fa-regular fa-bell"></i> تنظیمات اعلانات
+                </button>
+            </div>
+        </div>
+
+        <!-- محتوای تب‌ها -->
+        <div class="tab-content-container">
+
+            <!-- تب ۱: اطلاعات شخصی -->
+            <div class="tab-pane active" id="info-tab">
+                <form id="profileForm" class="form-card">
+                    <h3 class="form-title"><i class="fa-regular fa-user"></i> ویرایش مشخصات فردی</h3>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="firstName">نام:</label>
+                            <input type="text" id="firstName" value="طاها" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">نام خانوادگی:</label>
+                            <input type="text" id="lastName" value="عالم" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="username">نام کاربری (غیرقابل تغییر):</label>
+                            <input type="text" id="username" value="taha_aalam" disabled class="disabled-input">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">آدرس ایمیل:</label>
+                            <input type="email" id="email" value="taha@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">شماره همراه:</label>
+                            <input type="tel" id="phone" value="09123456789">
+                        </div>
+                        <div class="form-group">
+                            <label for="jobTitle">عنوان شغلی:</label>
+                            <input type="text" id="jobTitle" value="توسعه‌دهنده وب">
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="bio">درباره من:</label>
+                        <textarea id="bio" rows="4">توسعه‌دهنده فرانت‌اند و علاقه‌مند به طراحی رابط کاربری</textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fa-solid fa-floppy-disk"></i> ذخیره تغییرات
+                        </button>
+                        <button type="reset" class="btn btn-light">انصراف</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- تب ۲: امنیت و تغییر رمز عبور -->
+            <div class="tab-pane" id="security-tab">
+                <form id="securityForm" class="form-card">
+                    <h3 class="form-title"><i class="fa-solid fa-shield-halved"></i> تغییر رمز عبور</h3>
+
+                    <div class="form-group">
+                        <label for="currentPassword">رمز عبور فعلی:</label>
+                        <input type="password" id="currentPassword" placeholder="••••••••" required>
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="newPassword">رمز عبور جدید:</label>
+                            <input type="password" id="newPassword" placeholder="••••••••" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">تکرار رمز عبور جدید:</label>
+                            <input type="password" id="confirmPassword" placeholder="••••••••" required>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fa-solid fa-key"></i> بروزرسانی رمز عبور
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- تب ۳: تنظیمات اعلانات -->
+            <div class="tab-pane" id="notifications-tab">
+                <div class="form-card">
+                    <h3 class="form-title"><i class="fa-regular fa-bell"></i> تنظیمات اطلاع‌رسانی</h3>
+
+                    <div class="toggle-list">
+                        <div class="toggle-item">
+                            <div>
+                                <h4>اعلانات ایمیلی</h4>
+                                <p>دریافت اخبار و بروزرسانی‌های مهم حساب کاربری از طریق ایمیل</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="toggle-item">
+                            <div>
+                                <h4>هشدار‌های امنیتی</h4>
+                                <p>اطلاع‌رسانی هنگام ورود از دستگاه جدید یا تغییر رمز عبور</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="toggle-item">
+                            <div>
+                                <h4>پیامک اطلاع‌رسانی</h4>
+                                <p>ارسال کد تأیید و هشدارهای فوری روی شماره همراه</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
