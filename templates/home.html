@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پروفایل کاربر</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome برای آیکون‌ها -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- نوبار اصلی -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <i class="fa-solid fa-code"></i>
+            <span>داشبورد تمرینی</span>
+        </div>
+
+        <!-- بخش کاربر و منوی کشویی -->
+        <div class="user-menu-container">
+            <button class="user-menu-btn" id="userMenuBtn">
+                <img src="https://via.placeholder.com/150" alt="عکس کاربر" class="avatar-sm">
+                <span class="user-name">علی محمدی</span>
+                <i class="fa-solid fa-chevron-down arrow-icon"></i>
+            </button>
+
+            <!-- منوی عمودی کشویی -->
+            <div class="dropdown-menu" id="dropdownMenu">
+                <a href="#profile" class="dropdown-item">
+                    <i class="fa-regular fa-user"></i>
+                    <span>پروفایل کاربری</span>
+                </a>
+                <a href="#settings" class="dropdown-item">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>تنظیمات</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#logout" class="dropdown-item logout">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>خروج</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- محتوای اصلی صفحه پروفایل -->
+    <main class="main-container">
+        <div class="profile-card">
+            <div class="profile-header">
+                <img src="https://via.placeholder.com/150" alt="عکس کاربر" class="avatar-lg">
+                <h2 class="profile-name">علی محمدی</h2>
+                <p class="profile-role">توسعه‌دهنده بک‌اند</p>
+            </div>
+
+            <form class="profile-form">
+                <div class="form-group">
+                    <label for="username">نام کاربری:</label>
+                    <input type="text" id="username" value="alimohammadi" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">ایمیل:</label>
+                    <input type="email" id="email" value="ali@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="bio">درباره من:</label>
+                    <textarea id="bio" rows="3">در حال تمرین طراحی و توسعه بک‌اند...</textarea>
+                </div>
+
+                <button type="submit" class="btn-save">ذخیره تغییرات</button>
+            </form>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
