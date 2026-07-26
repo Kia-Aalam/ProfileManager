@@ -54,7 +54,7 @@ https://templatemo.com/tm-531-reflux
                   <li><a href="#">logout</a></li>
                 {% else %}
                   <li><a href="{% url 'signin' %}">Signin</a></li>
-                  <li><a href="#">Signup</a></li>
+                  <li><a href="{% url 'signup' %}">Signup</a></li>
                 {% endif %}
               </ul>
             </nav>
@@ -78,7 +78,7 @@ https://templatemo.com/tm-531-reflux
       <section class="section about-me" data-section="section1">
         <div class="container">
           <div class="section-heading">
-            {% if profile.models %}
+            {% if user.is_authenticated %}
                 <h2>profile</h2>
                 <div class="line-dec"></div>
                 {% block profile %}
@@ -86,9 +86,15 @@ https://templatemo.com/tm-531-reflux
             {% else %}
                 <h2>Login</h2>
                 <div class="line-dec"></div>
-                {% block login %}
-                    <h1>hi</h1>
-                {% endblock %}
+                {% if request.resolver_match.url_name == 'signin' %}
+                    {% block signin %}
+                        <h1>signin</h1>
+                    {% endblock %}
+                {% elif request.resolver_match.url_name == 'signup' %}
+                    {% block signup %}
+                        <h1>signup</h1>
+                    {% endblock %}
+                {% endif %}
             {% endif %}
           </div>
         </div>
@@ -105,55 +111,5 @@ https://templatemo.com/tm-531-reflux
     <script src="{% static 'js/lightbox.js' %}"></script>
     <script src="{% static 'js/custom.js' %}"></script>
     <script src="{% static 'js/signin.js' %}"></script>
-    <script>
-      //according to loftblog tut
-      $(".main-menu li:first").addClass("active");
-
-      var showSection = function showSection(section, isAnimate) {
-        var direction = section.replace(/#/, ""),
-          reqSection = $(".section").filter(
-            '[data-section="' + direction + '"]'
-          ),
-          reqSectionPos = reqSection.offset().top - 0;
-
-        if (isAnimate) {
-          $("body, html").animate(
-            {
-              scrollTop: reqSectionPos
-            },
-            800
-          );
-        } else {
-          $("body, html").scrollTop(reqSectionPos);
-        }
-      };
-
-      var checkSection = function checkSection() {
-        $(".section").each(function() {
-          var $this = $(this),
-            topEdge = $this.offset().top - 80,
-            bottomEdge = topEdge + $this.height(),
-            wScroll = $(window).scrollTop();
-          if (topEdge < wScroll && bottomEdge > wScroll) {
-            var currentId = $this.data("section"),
-              reqLink = $("a").filter("[href*=\\#" + currentId + "]");
-            reqLink
-              .closest("li")
-              .addClass("active")
-              .siblings()
-              .removeClass("active");
-          }
-        });
-      };
-
-      $(".main-menu").on("click", "a", function(e) {
-        e.preventDefault();
-        showSection($(this).attr("href"), true);
-      });
-
-      $(window).scroll(function() {
-        checkSection();
-      });
-    </script>
   </body>
 </html>
