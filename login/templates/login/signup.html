@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Create your Reflux account" />
+    <title>Sign Up — Reflux Template</title>
+    <!--
+    Reflux Template
+    https://templatemo.com/tm-531-reflux
+    Sign Up page
+    -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet" />
+
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/fontawesome.css" />
+    <link rel="stylesheet" href="assets/css/auth-common.css" />
+    <link rel="stylesheet" href="signup.css" />
+  </head>
+
+  <body class="auth-body">
+    <div class="top-nav">
+      <a href="index.html" class="brand-mark">
+        <span class="mark"></span>
+        <span>Reflux</span>
+      </a>
+      <a href="index.html" class="back-link"><span class="arrow">&#8592;</span> Back to site</a>
+    </div>
+
+    <main class="auth-shell">
+      <section class="auth-side">
+        <span class="eyebrow">Join the studio</span>
+        <h1>Build your<br /><em>portfolio</em> here.</h1>
+        <p class="lede">
+          Create a free account to publish your work, connect with other
+          designers and get discovered.
+        </p>
+        <div class="stat-row">
+          <div class="stat"><b>128</b><span>Projects</span></div>
+          <div class="stat"><b>4.9k</b><span>Members</span></div>
+          <div class="stat"><b>32</b><span>Countries</span></div>
+        </div>
+      </section>
+
+      <section class="auth-card-wrap">
+        <form class="auth-card" id="signupForm" novalidate>
+          <h2>Create account</h2>
+          <p class="sub">It only takes a minute to get started.</p>
+
+          <div class="form-banner" id="formBanner"></div>
+
+          <div class="field">
+            <label for="fullname">Full name</label>
+            <div class="control">
+              <input type="text" id="fullname" name="fullname" placeholder="Your full name" autocomplete="name" />
+            </div>
+            <div class="hint" id="fullnameHint"></div>
+          </div>
+
+          <div class="field">
+            <label for="email">Email address</label>
+            <div class="control">
+              <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" />
+            </div>
+            <div class="hint" id="emailHint"></div>
+          </div>
+
+          <div class="field">
+            <label for="password">Password</label>
+            <div class="control">
+              <input type="password" id="password" name="password" placeholder="Create a password" autocomplete="new-password" />
+              <button type="button" class="icon-btn" id="togglePassword" aria-label="Show password">
+                <i class="fa fa-eye"></i>
+              </button>
+            </div>
+            <div class="strength-meter" id="strengthMeter">
+              <i></i><i></i><i></i><i></i>
+            </div>
+            <div class="hint" id="passwordHint">Use 8+ characters with a number and a symbol.</div>
+          </div>
+
+          <div class="field">
+            <label for="confirmPassword">Confirm password</label>
+            <div class="control">
+              <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Repeat your password" autocomplete="new-password" />
+            </div>
+            <div class="hint" id="confirmHint"></div>
+          </div>
+
+          <div class="row-between">
+            <label class="checkbox">
+              <input type="checkbox" id="terms" name="terms" />
+              I agree to the <a href="#" class="link-muted">Terms</a> &amp; <a href="#" class="link-muted">Privacy Policy</a>
+            </label>
+          </div>
+
+          <button type="submit" class="btn-primary" id="submitBtn">
+            <span class="spinner"></span>
+            <span class="btn-label">Create account</span>
+          </button>
+
+          <div class="divider">or sign up with</div>
+          <div class="social-row">
+            <button type="button" class="social-btn" aria-label="Continue with Google"><i class="fa fa-google"></i></button>
+            <button type="button" class="social-btn" aria-label="Continue with Facebook"><i class="fa fa-facebook"></i></button>
+            <button type="button" class="social-btn" aria-label="Continue with LinkedIn"><i class="fa fa-linkedin"></i></button>
+          </div>
+
+          <p class="foot-note">Already have an account? <a href="signin.html" class="link-muted">Sign in</a></p>
+        </form>
+      </section>
+    </main>
+
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="signup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+/* Sign Up — page specific styling */
+
+.strength-meter.weak i:nth-child(1) {
+  background: #e0616c;
+}
+
+.strength-meter.fair i:nth-child(1),
+.strength-meter.fair i:nth-child(2) {
+  background: #e0a361;
+}
+
+.strength-meter.good i:nth-child(1),
+.strength-meter.good i:nth-child(2),
+.strength-meter.good i:nth-child(3) {
+  background: #d9c561;
+}
+
+.strength-meter.strong i {
+  background: #6cc38a;
+}
+
+.field input.shake {
+  animation: shake 0.35s ease;
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translateX(-1px);
+  }
+  20%,
+  80% {
+    transform: translateX(2px);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translateX(-4px);
+  }
+  40%,
+  60% {
+    transform: translateX(4px);
+  }
+}

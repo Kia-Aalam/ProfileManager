@@ -27,6 +27,9 @@ https://templatemo.com/tm-531-reflux
     <link rel="stylesheet" href="{% static 'css/templatemo-style.css' %}" />
     <link rel="stylesheet" href="{% static 'css/owl.css' %}" />
     <link rel="stylesheet" href="{% static 'css/lightbox.css' %}" />
+    <link rel="stylesheet" href={% static 'css/auth-common.css' %}" />
+    {% block link_css %}
+    {% endblock %}
   </head>
 
   <body>
@@ -50,7 +53,7 @@ https://templatemo.com/tm-531-reflux
                   <li><a href="#section1">profile</a></li>
                   <li><a href="#section2">logout</a></li>
                 {% else %}
-                  <li><a href="#section3">Singin</a></li>
+                  <li><a href="{% url 'singin' %}">Singin</a></li>
                   <li><a href="#section3">Singup</a></li>
                 {% endif %}
               </ul>
@@ -78,11 +81,14 @@ https://templatemo.com/tm-531-reflux
             {% if profile.models %}
                 <h2>profile</h2>
                 <div class="line-dec"></div>
+                {% block profile %}
+                {% endblock %}
             {% else %}
                 <h2>Login</h2>
                 <div class="line-dec"></div>
+                {% block Login %}
+                {% endblock %}
             {% endif %}
-
           </div>
         </div>
       </section>

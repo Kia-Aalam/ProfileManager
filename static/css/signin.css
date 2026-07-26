@@ -1,0 +1,33 @@
+/* Sign In — page specific styling */
+
+#signinForm .auth-card {
+  animation-delay: 0.05s;
+}
+
+#forgotLink {
+  transition: color 0.25s ease;
+}
+
+.field input.shake {
+  animation: shake 0.35s ease;
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translateX(-1px);
+  }
+  20%,
+  80% {
+    transform: translateX(2px);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translateX(-4px);
+  }
+  40%,
+  60% {
+    transform: translateX(4px);
+  }
+}
