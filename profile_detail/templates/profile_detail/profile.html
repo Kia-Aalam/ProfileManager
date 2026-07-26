@@ -1,0 +1,166 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block css_link %}
+    <link rel="stylesheet" href="{%  static 'css/profile.css' %}" />
+{% endblock %}
+
+{% block profile %}
+  <body class="auth-body profile-body">
+    <div class="top-nav">
+      <div class="brand-mark">
+        <span class="mark"></span>
+        <span>Profile</span>
+      </div>
+      <a href="{% url 'logout' %}" class="back-link" id="logoutLink">Logout <span class="arrow">&#8594;</span></a>
+    </div>
+
+    <main class="profile-shell">
+      <section class="profile-header">
+        <div class="cover"></div>
+        <div class="header-content">
+          <div class="avatar-wrap">
+            <img src="{% static 'images/author-image.jpg' %}" alt="Profile photo" class="avatar" id="avatarImg" />
+            <button type="button" class="avatar-edit" id="avatarEditBtn" aria-label="Change photo">
+              <i class="fa fa-camera"></i>
+            </button>
+          </div>
+          <div class="header-text">
+            <h1 id="profileName">Reflux Me</h1>
+            <p class="role" id="profileRole">Web Designer &middot; Berlin, Germany</p>
+          </div>
+          <button type="button" class="btn-primary btn-edit" id="editProfileBtn">
+            <i class="fa fa-pencil"></i>&nbsp; Edit profile
+          </button>
+        </div>
+
+        <div class="stat-strip">
+          <div class="stat"><b>128</b><span>Projects</span></div>
+          <div class="stat"><b>4.9k</b><span>Followers</span></div>
+          <div class="stat"><b>212</b><span>Following</span></div>
+          <div class="stat"><b>4.8</b><span>Rating</span></div>
+        </div>
+      </section>
+
+      <nav class="profile-tabs" id="profileTabs">
+        <button type="button" class="tab-btn active" data-tab="about">About</button>
+        <button type="button" class="tab-btn" data-tab="portfolio">Portfolio</button>
+        <button type="button" class="tab-btn" data-tab="contact">Contact</button>
+        <button type="button" class="tab-btn" data-tab="settings">Settings</button>
+      </nav>
+
+      <section class="tab-panels">
+        <!-- ABOUT -->
+        <div class="tab-panel active" data-panel="about">
+          <div class="panel-grid">
+            <div class="glass-box">
+              <h3>Bio</h3>
+              <p>
+                Donec tristique feugiat lacus, at sollicitudin nunc euismod
+                sed. Mauris viverra, erat non sagittis gravida, elit dui
+                mollis ante, sit amet eleifend purus ligula eget eros.
+                Building clean, purposeful interfaces for five years.
+              </p>
+            </div>
+            <div class="glass-box">
+              <h3>Skills</h3>
+              <div class="tag-list">
+                <span class="tag">HTML5 &amp; CSS3</span>
+                <span class="tag">UI Design</span>
+                <span class="tag">Bootstrap</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Figma</span>
+                <span class="tag">Branding</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PORTFOLIO -->
+        <div class="tab-panel" data-panel="portfolio">
+          <div class="portfolio-grid">
+            <figure class="p-item">
+              <img src="assets/images/portfolio-01.jpg" alt="Project one" />
+              <figcaption><h4>Item First</h4><span>customize anything</span></figcaption>
+            </figure>
+            <figure class="p-item">
+              <img src="assets/images/portfolio-02.jpg" alt="Project two" />
+              <figcaption><h4>Item Second</h4><span>Re-distribution not allowed</span></figcaption>
+            </figure>
+            <figure class="p-item">
+              <img src="assets/images/portfolio-03.jpg" alt="Project three" />
+              <figcaption><h4>Item Third</h4><span>customize anything</span></figcaption>
+            </figure>
+            <figure class="p-item">
+              <img src="assets/images/portfolio-04.jpg" alt="Project four" />
+              <figcaption><h4>Item Fourth</h4><span>Re-distribution not allowed</span></figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <!-- CONTACT -->
+        <div class="tab-panel" data-panel="contact">
+          <div class="panel-grid">
+            <div class="glass-box">
+              <h3>Contact information</h3>
+              <ul class="info-list">
+                <li><i class="fa fa-envelope"></i> reflux.me@example.com</li>
+                <li><i class="fa fa-phone"></i> +49 176 000 000</li>
+                <li><i class="fa fa-map-marker"></i> Berlin, Germany</li>
+              </ul>
+            </div>
+            <div class="glass-box">
+              <h3>Social</h3>
+              <ul class="social-list">
+                <li><a href="https://fb.com/templatemo"><i class="fa fa-facebook"></i> Facebook</a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i> Twitter</a></li>
+                <li><a href="#"><i class="fa fa-linkedin"></i> LinkedIn</a></li>
+                <li><a href="#"><i class="fa fa-dribbble"></i> Dribbble</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- SETTINGS -->
+        <div class="tab-panel" data-panel="settings">
+          <form class="glass-box settings-form" id="settingsForm" novalidate>
+            <h3>Edit profile</h3>
+            <div class="settings-grid">
+              <div class="field">
+                <label for="settingsName">Full name</label>
+                <div class="control"><input type="text" id="settingsName" value="Reflux Me" /></div>
+              </div>
+              <div class="field">
+                <label for="settingsRole">Role / title</label>
+                <div class="control"><input type="text" id="settingsRole" value="Web Designer" /></div>
+              </div>
+              <div class="field">
+                <label for="settingsEmail">Email address</label>
+                <div class="control"><input type="email" id="settingsEmail" value="reflux.me@example.com" /></div>
+              </div>
+              <div class="field">
+                <label for="settingsLocation">Location</label>
+                <div class="control"><input type="text" id="settingsLocation" value="Berlin, Germany" /></div>
+              </div>
+            </div>
+            <div class="field">
+              <label for="settingsBio">Bio</label>
+              <div class="control">
+                <textarea id="settingsBio" rows="4">Donec tristique feugiat lacus, at sollicitudin nunc euismod sed. Mauris viverra, erat non sagittis gravida, elit dui mollis ante.</textarea>
+              </div>
+            </div>
+            <div class="form-banner" id="settingsBanner"></div>
+            <button type="submit" class="btn-primary" id="settingsSubmit" style="max-width:220px;">
+              <span class="spinner"></span>
+              <span class="btn-label">Save changes</span>
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+{% endblock %}
+
+{% block js_script %}
+    <script src="{% static 'js/profile.js' %}"></script>
+{% endblock %}
+

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # Myapps
     'home.apps.HomeConfig',
     'login.apps.LoginConfig',
+    'profile_detail.apps.ProfileDetailConfig',
 ]
 
 MIDDLEWARE = [
