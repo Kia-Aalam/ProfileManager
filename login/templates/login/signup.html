@@ -31,7 +31,8 @@
       </section>
 
       <section class="auth-card-wrap">
-        <form class="auth-card" id="signupForm" novalidate>
+        <form class="auth-card" id="signupForm" method="post" novalidate>
+          {% csrf_token %}
           <h2>Create account</h2>
           <p class="sub">It only takes a minute to get started.</p>
 

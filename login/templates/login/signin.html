@@ -25,7 +25,8 @@
       </section>
 
       <section class="auth-card-wrap">
-        <form class="auth-card" id="signinForm" novalidate>
+        <form class="auth-card" id="signinForm" method="post" novalidate>
+          {% csrf_token %}
           <h2>Sign in</h2>
             <br>
 
