@@ -1,4 +1,4 @@
 from django.shortcuts import render
 
-def singin(request):
-    return render(request, 'login/singin.html')
+def signin(request):
+    return render(request, 'login/signin.html')
