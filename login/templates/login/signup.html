@@ -8,11 +8,11 @@
 {% block signup %}
   <div class="auth-body">
     <div class="top-nav">
-      <a href="index.html" class="brand-mark">
+      <a href="#" class="brand-mark">
         <span class="mark"></span>
         <span>signup</span>
       </a>
-      <a href="index.html" class="back-link"><span class="arrow">&#8592;</span> Back to site</a>
+      <a href="#" class="back-link"><span class="arrow">&#8592;</span> Back to site</a>
     </div>
 
     <main class="auth-shell">
@@ -39,19 +39,11 @@
           <div class="form-banner" id="formBanner"></div>
 
           <div class="field">
-            <label for="fullname">Full name</label>
+            <label for="username">User Name</label>
             <div class="control">
-              <input type="text" id="fullname" name="fullname" placeholder="Your full name" autocomplete="name" />
+              <input type="text" id="username" name="username" placeholder="Your username" autocomplete="name" />
             </div>
-            <div class="hint" id="fullnameHint"></div>
-          </div>
-
-          <div class="field">
-            <label for="email">Email address</label>
-            <div class="control">
-              <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" />
-            </div>
-            <div class="hint" id="emailHint"></div>
+            <div class="hint" id="usernameHint"></div>
           </div>
 
           <div class="field">
@@ -95,7 +87,7 @@
             <button type="button" class="social-btn" aria-label="Continue with LinkedIn"><i class="fa fa-linkedin"></i></button>
           </div>
 
-          <p class="foot-note">Already have an account? <a href="signin.html" class="link-muted">Sign in</a></p>
+          <p class="foot-note">Already have an account? <a href="{% url 'signin' %}" class="link-muted">Sign in</a></p>
         </form>
       </section>
     </main>

@@ -20,4 +20,19 @@ def signin(request):
 def signup(request):
     if request.user.is_authenticated == True:
         return redirect('home')
+
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        confirmPassword = request.POST.get('confirmPassword')
+
+        exist_username = User.objects.filter(username=username).exists()
+        if not exist_username and password == confirmPassword:
+            user = User.objects.create_user(username=username, password=password)
+            user.save()
+            login(request, user)
+            return redirect('home')
+        else:
+            return redirect('signup')
+
     return render(request, 'login/signup.html')
