@@ -44,14 +44,14 @@ https://templatemo.com/tm-531-reflux
               <a href="#"><img src="{% static 'images/author-image.jpg' %}" alt="" /></a>
             </div>
             <div class="author-content">
-              <h4>name</h4>
+              <h4>{{ user.username }}</h4>
               <span>specialty</span>
             </div>
             <nav class="main-nav" role="navigation">
               <ul class="main-menu">
-                {% if profile.models %}
+                {% if user.is_authenticated %}
                   <li><a href="#">profile</a></li>
-                  <li><a href="#">logout</a></li>
+                  <li><a href="{% url 'logout' %}">logout</a></li>
                 {% else %}
                   <li><a href="{% url 'signin' %}">Signin</a></li>
                   <li><a href="{% url 'signup' %}">Signup</a></li>
