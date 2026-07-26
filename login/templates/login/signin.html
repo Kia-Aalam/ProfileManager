@@ -18,31 +18,25 @@
     <main class="auth-shell">
       <section class="auth-side">
         <span class="eyebrow">Welcome back</span>
-        <h1>Good to see you<br /><em>again.</em></h1>
+        <h1>Good to see you<br /><em>again</em></h1>
         <p class="lede">
-          Sign in to manage your projects, update your portfolio and pick up
-          right where you left off.
+          Sign in to manage your portfolio
         </p>
-        <div class="stat-row">
-          <div class="stat"><b>128</b><span>Projects</span></div>
-          <div class="stat"><b>4.9k</b><span>Members</span></div>
-          <div class="stat"><b>32</b><span>Countries</span></div>
-        </div>
       </section>
 
       <section class="auth-card-wrap">
         <form class="auth-card" id="signinForm" novalidate>
           <h2>Sign in</h2>
-          <p class="sub">Enter your details to access your account.</p>
+            <br>
 
           <div class="form-banner" id="formBanner"></div>
 
           <div class="field">
-            <label for="email">Email address</label>
+            <label for="username">User Name</label>
             <div class="control">
-              <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" />
+              <input type="text" id="username" name="username" placeholder="Enter your username" />
             </div>
-            <div class="hint" id="emailHint"></div>
+            <div class="hint" id="usernameHint"></div>
           </div>
 
           <div class="field">
@@ -56,6 +50,7 @@
             <div class="hint" id="passwordHint"></div>
           </div>
 
+          <!--
           <div class="row-between">
             <label class="checkbox">
               <input type="checkbox" id="remember" name="remember" />
@@ -63,6 +58,7 @@
             </label>
             <a href="#" class="link-muted" id="forgotLink">Forgot password?</a>
           </div>
+          -->
 
           <button type="submit" class="btn-primary" id="submitBtn">
             <span class="spinner"></span>
@@ -78,7 +74,7 @@
           </div>
           -->
 
-          <p class="foot-note">Don't have an account? <a href="#" class="link-muted">Create one</a></p>
+          <p class="foot-note">Don't have an account? <a href="{% url 'signup' %}" class="link-muted">Create one</a></p>
         </form>
       </section>
     </main>
