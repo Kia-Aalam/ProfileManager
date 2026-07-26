@@ -1,12 +1,16 @@
 {% extends "index.html" %}
 {% load static %}
 
+{% block css_link %}
+    <link rel="stylesheet" href="{% static 'css/signin.css' %}" />
+{% endblock %}
+
 {% block signin %}
   <div class="auth-body">
     <div class="top-nav">
       <a href="{% url 'home' %}" class="brand-mark">
         <span class="mark"></span>
-        <span>Reflux</span>
+        <span>signin</span>
       </a>
       <a href="{% url 'home' %}" class="back-link"><span class="arrow">&#8592;</span> Back to site</a>
     </div>
@@ -79,4 +83,8 @@
       </section>
     </main>
   </div>
+{% endblock %}
+
+{% block js_script %}
+    <script src="{% static 'js/signin.js' %}"></script>
 {% endblock %}
