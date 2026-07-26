@@ -41,16 +41,17 @@ https://templatemo.com/tm-531-reflux
           <i class="fa fa-times" id="menu-close"></i>
           <div class="container">
             <div class="image">
-              <a href="#"><img src="{% static 'images/author-image.jpg' %}" alt="" /></a>
+              <a href="{% url 'profile' %}"><img src="{% static 'images/default.png' %}" alt="" /></a>
             </div>
             <div class="author-content">
               <h4>{{ user.username }}</h4>
+              <!-- // -->
               <span>specialty</span>
             </div>
             <nav class="main-nav" role="navigation">
               <ul class="main-menu">
                 {% if user.is_authenticated %}
-                  <li><a href="#">profile</a></li>
+                  <li><a href="{% url 'profile' %}">profile</a></li>
                   <li><a href="{% url 'logout' %}">logout</a></li>
                 {% else %}
                   <li><a href="{% url 'signin' %}">Signin</a></li>

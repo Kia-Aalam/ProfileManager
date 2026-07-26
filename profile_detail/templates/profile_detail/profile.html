@@ -12,47 +12,35 @@
         <span class="mark"></span>
         <span>Profile</span>
       </div>
-      <a href="{% url 'logout' %}" class="back-link" id="logoutLink">Logout <span class="arrow">&#8594;</span></a>
+      <a href="{% url 'home' %}" class="back-link"><span class="arrow">&#8592;</span> Back to site</a>
     </div>
 
     <main class="profile-shell">
       <section class="profile-header">
-        <div class="cover"></div>
-        <div class="header-content">
+        <div class="header-content mt-4">
           <div class="avatar-wrap">
-            <img src="{% static 'images/author-image.jpg' %}" alt="Profile photo" class="avatar" id="avatarImg" />
+            <img src="{% static 'images/default.png' %}" alt="Profile photo" class="avatar" id="avatarImg" />
             <button type="button" class="avatar-edit" id="avatarEditBtn" aria-label="Change photo">
               <i class="fa fa-camera"></i>
             </button>
           </div>
           <div class="header-text">
-            <h1 id="profileName">Reflux Me</h1>
+            <h1 id="profileName">{{ user.username }}</h1>
             <p class="role" id="profileRole">Web Designer &middot; Berlin, Germany</p>
           </div>
-          <button type="button" class="btn-primary btn-edit" id="editProfileBtn">
+          <a href="#settingsForm" class="btn-primary btn-edit" id="editProfileBtn">
             <i class="fa fa-pencil"></i>&nbsp; Edit profile
-          </button>
-        </div>
-
-        <div class="stat-strip">
-          <div class="stat"><b>128</b><span>Projects</span></div>
-          <div class="stat"><b>4.9k</b><span>Followers</span></div>
-          <div class="stat"><b>212</b><span>Following</span></div>
-          <div class="stat"><b>4.8</b><span>Rating</span></div>
+          </a>
         </div>
       </section>
 
-      <nav class="profile-tabs" id="profileTabs">
-        <button type="button" class="tab-btn active" data-tab="about">About</button>
-        <button type="button" class="tab-btn" data-tab="portfolio">Portfolio</button>
-        <button type="button" class="tab-btn" data-tab="contact">Contact</button>
-        <button type="button" class="tab-btn" data-tab="settings">Settings</button>
-      </nav>
+        <br>
 
       <section class="tab-panels">
         <!-- ABOUT -->
         <div class="tab-panel active" data-panel="about">
           <div class="panel-grid">
+
             <div class="glass-box">
               <h3>Bio</h3>
               <p>
@@ -62,45 +50,7 @@
                 Building clean, purposeful interfaces for five years.
               </p>
             </div>
-            <div class="glass-box">
-              <h3>Skills</h3>
-              <div class="tag-list">
-                <span class="tag">HTML5 &amp; CSS3</span>
-                <span class="tag">UI Design</span>
-                <span class="tag">Bootstrap</span>
-                <span class="tag">JavaScript</span>
-                <span class="tag">Figma</span>
-                <span class="tag">Branding</span>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <!-- PORTFOLIO -->
-        <div class="tab-panel" data-panel="portfolio">
-          <div class="portfolio-grid">
-            <figure class="p-item">
-              <img src="assets/images/portfolio-01.jpg" alt="Project one" />
-              <figcaption><h4>Item First</h4><span>customize anything</span></figcaption>
-            </figure>
-            <figure class="p-item">
-              <img src="assets/images/portfolio-02.jpg" alt="Project two" />
-              <figcaption><h4>Item Second</h4><span>Re-distribution not allowed</span></figcaption>
-            </figure>
-            <figure class="p-item">
-              <img src="assets/images/portfolio-03.jpg" alt="Project three" />
-              <figcaption><h4>Item Third</h4><span>customize anything</span></figcaption>
-            </figure>
-            <figure class="p-item">
-              <img src="assets/images/portfolio-04.jpg" alt="Project four" />
-              <figcaption><h4>Item Fourth</h4><span>Re-distribution not allowed</span></figcaption>
-            </figure>
-          </div>
-        </div>
-
-        <!-- CONTACT -->
-        <div class="tab-panel" data-panel="contact">
-          <div class="panel-grid">
             <div class="glass-box">
               <h3>Contact information</h3>
               <ul class="info-list">
@@ -109,30 +59,32 @@
                 <li><i class="fa fa-map-marker"></i> Berlin, Germany</li>
               </ul>
             </div>
+
             <div class="glass-box">
               <h3>Social</h3>
               <ul class="social-list">
-                <li><a href="https://fb.com/templatemo"><i class="fa fa-facebook"></i> Facebook</a></li>
+                <li><a href="#"><i class="fa fa-facebook"></i> Facebook</a></li>
                 <li><a href="#"><i class="fa fa-twitter"></i> Twitter</a></li>
                 <li><a href="#"><i class="fa fa-linkedin"></i> LinkedIn</a></li>
-                <li><a href="#"><i class="fa fa-dribbble"></i> Dribbble</a></li>
               </ul>
             </div>
           </div>
         </div>
 
+        <br>
+
         <!-- SETTINGS -->
-        <div class="tab-panel" data-panel="settings">
+        <div class="tab-panel active" data-panel="settings">
           <form class="glass-box settings-form" id="settingsForm" novalidate>
             <h3>Edit profile</h3>
             <div class="settings-grid">
               <div class="field">
-                <label for="settingsName">Full name</label>
+                <label for="settingsName">User Name</label>
                 <div class="control"><input type="text" id="settingsName" value="Reflux Me" /></div>
               </div>
               <div class="field">
-                <label for="settingsRole">Role / title</label>
-                <div class="control"><input type="text" id="settingsRole" value="Web Designer" /></div>
+                <label for="settingsRole">Specialty</label>
+                <div class="control"><input type="text" id="settingsSpecialty" value="Web Designer" /></div>
               </div>
               <div class="field">
                 <label for="settingsEmail">Email address</label>
@@ -150,9 +102,8 @@
               </div>
             </div>
             <div class="form-banner" id="settingsBanner"></div>
-            <button type="submit" class="btn-primary" id="settingsSubmit" style="max-width:220px;">
-              <span class="spinner"></span>
-              <span class="btn-label">Save changes</span>
+            <button type="submit" class="btn-primary btn-edit" id="settingsSubmit">
+            <i class="btn-label"></i>&nbsp; Save changes
             </button>
           </form>
         </div>
