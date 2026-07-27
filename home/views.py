@@ -1,3 +1,5 @@
 from django.shortcuts import render
+from profile_detail.models import Profile
 def home(request):
-    return render(request, 'index.html')
+    profile = Profile.objects.all()
+    return render(request, 'index.html', {'profile': profile})

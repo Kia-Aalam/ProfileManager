@@ -26,7 +26,7 @@
           </div>
           <div class="header-text">
             <h1 id="profileName">{{ user.username }}</h1>
-            <p class="role" id="profileRole">Web Designer &middot; Berlin, Germany</p>
+            <p class="role" id="profileRole">{{ profile.specialty }} {% if profile.location %} &middot; {{ profile.location }} {% endif %}</p>
           </div>
           <a href="#settingsForm" class="btn-primary btn-edit" id="editProfileBtn">
             <i class="fa fa-pencil"></i>&nbsp; Edit profile
@@ -44,22 +44,19 @@
             <div class="glass-box">
               <h3>Bio</h3>
               <p>
-                Donec tristique feugiat lacus, at sollicitudin nunc euismod
-                sed. Mauris viverra, erat non sagittis gravida, elit dui
-                mollis ante, sit amet eleifend purus ligula eget eros.
-                Building clean, purposeful interfaces for five years.
+                {{ profile.bio }}
               </p>
             </div>
 
             <div class="glass-box">
               <h3>Contact information</h3>
               <ul class="info-list">
-                <li><i class="fa fa-envelope"></i> reflux.me@example.com</li>
-                <li><i class="fa fa-phone"></i> +49 176 000 000</li>
-                <li><i class="fa fa-map-marker"></i> Berlin, Germany</li>
+                <li><i class="fa fa-envelope"></i> {{ profile.email }} </li>
+                <li><i class="fa fa-map-marker"></i> {{ profile.location }}</li>
               </ul>
             </div>
 
+            <!-- coming version 2
             <div class="glass-box">
               <h3>Social</h3>
               <ul class="social-list">
@@ -68,6 +65,7 @@
                 <li><a href="#"><i class="fa fa-linkedin"></i> LinkedIn</a></li>
               </ul>
             </div>
+            -->
           </div>
         </div>
 
@@ -75,30 +73,31 @@
 
         <!-- SETTINGS -->
         <div class="tab-panel active" data-panel="settings">
-          <form class="glass-box settings-form" id="settingsForm" novalidate>
+          <form class="glass-box settings-form" id="settingsForm" method="post" action="{% url 'profile' %}" novalidate>
+            {% csrf_token %}
             <h3>Edit profile</h3>
             <div class="settings-grid">
               <div class="field">
                 <label for="settingsName">User Name</label>
-                <div class="control"><input type="text" id="settingsName" value="Reflux Me" /></div> <!-- /value/ -->
+                <div class="control"><input type="text" id="settingsName" value="{{ user.username }}" /></div> <!-- /value/ -->
               </div>
               <div class="field">
                 <label for="settingsRole">Specialty</label>
-                <div class="control"><input type="text" id="settingsSpecialty" value="Web Designer" /></div>
+                <div class="control"><input type="text" id="settingsSpecialty" value="{{ profile.specialty }}" /></div>
               </div>
               <div class="field">
                 <label for="settingsEmail">Email address</label>
-                <div class="control"><input type="email" id="settingsEmail" value="reflux.me@example.com" /></div>
+                <div class="control"><input type="email" id="settingsEmail" value="{{ profile.email }}" /></div>
               </div>
               <div class="field">
                 <label for="settingsLocation">Location</label>
-                <div class="control"><input type="text" id="settingsLocation" value="Berlin, Germany" /></div>
+                <div class="control"><input type="text" id="settingsLocation" value="{{ profile.location }}" /></div>
               </div>
             </div>
             <div class="field">
               <label for="settingsBio">Bio</label>
               <div class="control">
-                <textarea id="settingsBio" rows="4">Donec tristique feugiat lacus, at sollicitudin nunc euismod sed. Mauris viverra, erat non sagittis gravida, elit dui mollis ante.</textarea>
+                <textarea id="settingsBio" rows="4">{{ profile.bio }}</textarea>
               </div>
             </div>
             <div class="form-banner" id="settingsBanner"></div>
