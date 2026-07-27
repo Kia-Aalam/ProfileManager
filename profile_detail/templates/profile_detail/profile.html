@@ -73,31 +73,31 @@
 
         <!-- SETTINGS -->
         <div class="tab-panel active" data-panel="settings">
-          <form class="glass-box settings-form" id="settingsForm" method="post" action="{% url 'profile' %}" novalidate>
+          <form class="glass-box settings-form" id="settingsForm" method="post">
             {% csrf_token %}
             <h3>Edit profile</h3>
             <div class="settings-grid">
               <div class="field">
                 <label for="settingsName">User Name</label>
-                <div class="control"><input type="text" id="settingsName" value="{{ user.username }}" /></div> <!-- /value/ -->
+                <div class="control"><input type="text" id="settingsName" value="{{ user.username }}" name="username" /></div>
               </div>
               <div class="field">
                 <label for="settingsRole">Specialty</label>
-                <div class="control"><input type="text" id="settingsSpecialty" value="{{ profile.specialty }}" /></div>
+                <div class="control"><input type="text" id="settingsSpecialty" value="{{ profile.specialty }}" name="specialty" /></div>
               </div>
               <div class="field">
                 <label for="settingsEmail">Email address</label>
-                <div class="control"><input type="email" id="settingsEmail" value="{{ profile.email }}" /></div>
+                <div class="control"><input type="email" id="settingsEmail" value="{{ profile.email }}" name="email" /></div>
               </div>
               <div class="field">
                 <label for="settingsLocation">Location</label>
-                <div class="control"><input type="text" id="settingsLocation" value="{{ profile.location }}" /></div>
+                <div class="control"><input type="text" id="settingsLocation" value="{{ profile.location }}" name="location" /></div>
               </div>
             </div>
             <div class="field">
               <label for="settingsBio">Bio</label>
               <div class="control">
-                <textarea id="settingsBio" rows="4">{{ profile.bio }}</textarea>
+                <textarea id="settingsBio" name="bio" rows="4">{{ profile.bio }}</textarea>
               </div>
             </div>
             <div class="form-banner" id="settingsBanner"></div>

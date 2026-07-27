@@ -10,14 +10,15 @@ def profile(request):
         request.user.username = request.POST.get("username", request.user.username)
         request.user.save()
 
-        #request.email = request.POST.get("email", "")
         profile.specialty = request.POST.get("specialty", "")
-        #profile.location = request.POST.get("location", "")
+        profile.email = request.POST.get("email", "")
+        profile.location = request.POST.get("location", "")
         profile.bio = request.POST.get("bio", "")
         profile.save()
 
+        print(request.POST.get("specialty"))
+        print(request.POST.get("bio"))
+
         return redirect("profile")
 
-    return render(request, "profile_detail/profile.html", {
-        "profile": profile
-    })
+    return render(request, "profile_detail/profile.html", {"profile": profile})
