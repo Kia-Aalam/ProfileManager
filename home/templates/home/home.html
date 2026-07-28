@@ -1,0 +1,91 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block css_link %}
+    <link rel="stylesheet" href="{% static 'css/auth-common.css' %}" />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link href="{% static 'css/home_style.css' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block home %}
+  <body class="auth-body home-body">
+    <div class="home-wrap">
+
+      <section class="home-hero">
+        <div>
+          <span class="home-eyebrow">Django auth package</span>
+          <h1>A login system<br />you can drop into <em>any</em> site</h1>
+          <p class="home-lede">
+            This project ships a complete, self-contained account package &mdash; sign up, sign in, log out,
+            and an editable profile &mdash; built as a standalone Django app you can plug into a new project
+            without rewriting it
+          </p>
+          <div class="home-cta">
+            {% if user.is_authenticated %}
+              <a href="{% url 'profile' %}" class="home-btn home-btn-primary">Go to profile</a>
+              <a href="{% url 'logout' %}" class="home-btn home-btn-ghost">Log out</a>
+            {% else %}
+              <a href="{% url 'signup' %}" class="home-btn home-btn-primary">Create account</a>
+              <a href="{% url 'signin' %}" class="home-btn home-btn-ghost">Sign in</a>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="home-terminal" aria-hidden="true">
+          <div class="home-terminal-bar"><span></span><span></span><span></span></div>
+          <div class="home-terminal-body">
+            <div class="line"><span class="verb">POST</span> <span class="path">/signup</span> &rarr; <span class="status-ok">201 user created</span></div>
+            <div class="line"><span class="verb">POST</span> <span class="path">/signin</span> &rarr; <span class="status-ok">200 session started</span></div>
+            <div class="line"><span class="verb">GET</span>&nbsp; <span class="path">/profile</span> &rarr; <span class="status-ok">200 profile rendered</span></div>
+            <div class="line"><span class="verb">POST</span> <span class="path">/profile</span> &rarr; <span class="status-ok">200 details saved</span></div>
+            <div class="line"><span class="verb">GET</span>&nbsp; <span class="path">/logout</span> &rarr; <span class="status-ok">302 session cleared</span><span class="home-cursor"></span></div>
+          </div>
+        </div>
+      </section>
+
+      <div class="home-section-label">Account</div>
+      <h2 class="home-section-title">Four routes, one continuous flow</h2>
+      <div class="home-flow">
+        <div class="home-flow-card">
+          <div class="home-flow-num">01</div>
+          <h4>/signup</h4>
+          <p>Creates a Django <code>User</code> with <code>create_user()</code>, so passwords are hashed automatically before the account exists</p>
+        </div>
+        <div class="home-flow-card">
+          <div class="home-flow-num">02</div>
+          <h4>/signin</h4>
+          <p><code>authenticate()</code> checks the credentials, then <code>login()</code> attaches a session to the browser</p>
+        </div>
+        <div class="home-flow-card">
+          <div class="home-flow-num">03</div>
+          <h4>/profile</h4>
+          <p>A <code>login_required</code> view that reads and updates a one-to-one <code>Profile</code> model on the same page</p>
+        </div>
+        <div class="home-flow-card">
+          <div class="home-flow-num">04</div>
+          <h4>/logout</h4>
+          <p><code>logout()</code> clears the session and sends the user back to a public homepage</p>
+        </div>
+      </div>
+
+      <section class="home-reuse">
+        <div>
+          <h3>Built to be reused</h3>
+          <p>
+            The account logic lives in its own Django apps with their own <code>urls.py</code>, <code>views.py</code>,
+            and <code>models.py</code>. Because the templates extend one shared base and the views don't depend on
+            anything specific to this portfolio, the whole package can be copied into a different Django project
+            with only the static assets and branding swapped out
+          </p>
+        </div>
+        <ul class="home-reuse-list">
+          <li><span>&raquo;</span>Drop-in <code>login</code> and <code>profile_detail</code> apps</li>
+          <li><span>&raquo;</span>One <code>Profile</code> model extends Django's built-in <code>User</code></li>
+          <li><span>&raquo;</span>Shared base template keeps every page on-brand</li>
+          <li><span>&raquo;</span>No third-party auth service required</li>
+        </ul>
+      </section>
+
+    </div>
+  </body>
+{% endblock %}
