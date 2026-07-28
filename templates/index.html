@@ -79,24 +79,19 @@ https://templatemo.com/tm-531-reflux
       <section class="section about-me" data-section="section1">
         <div class="container">
           <div class="section-heading">
+
+            {% block home %}
+            {% endblock %}
+
             {% if user.is_authenticated %}
-                <h2>profile</h2>
-                <div class="line-dec"></div>
                 {% block profile %}
-                    <h1>Profile</h1>
                 {% endblock %}
             {% else %}
-                <h1>Home</h1>
-                {% block home %}
-                {% endblock %}
-                <div class="line-dec"></div>
                 {% if request.resolver_match.url_name == 'signin' %}
                     {% block signin %}
-                        <h1>Signin</h1>
                     {% endblock %}
                 {% elif request.resolver_match.url_name == 'signup' %}
                     {% block signup %}
-                        <h1>Signup</h1>
                     {% endblock %}
                 {% endif %}
             {% endif %}
