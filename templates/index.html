@@ -41,7 +41,13 @@ https://templatemo.com/tm-531-reflux
           <i class="fa fa-times" id="menu-close"></i>
           <div class="container">
             <div class="image">
-              <a href="{% url 'profile' %}"><img src="{% static 'images/default.png' %}" alt="" /></a>
+              <a href="{% url 'profile' %}">
+                  {% if profile.image %}
+                    <img src="{{ profile.image.url }}" alt="Profile photo" class="avatar" id="avatarImg" />
+                  {% else %}
+                    <img src="{% static 'images/default.png' %}" alt="Profile photo" class="avatar" id="avatarImg" />
+                  {% endif %}
+              </a>
             </div>
             <div class="author-content">
               <h4>{{ user.username }}</h4>

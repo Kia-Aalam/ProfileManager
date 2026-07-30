@@ -14,10 +14,11 @@ def profile(request):
         profile.email = request.POST.get("email", "")
         profile.location = request.POST.get("location", "")
         profile.bio = request.POST.get("bio", "")
-        profile.save()
 
-        print(request.POST.get("specialty"))
-        print(request.POST.get("bio"))
+        if request.FILES.get("image"):
+            profile.image = request.FILES["image"]
+
+        profile.save()
 
         return redirect("profile")
 
