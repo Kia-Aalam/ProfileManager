@@ -1,0 +1,48 @@
+{% load static %}
+
+<div class="responsive-nav">
+    <i class="fa fa-bars" id="menu-toggle"></i>
+    <div id="menu" class="menu">
+      <i class="fa fa-times" id="menu-close"></i>
+      <div class="container">
+        <div class="image">
+          <a href="{% url 'profile' %}">
+              {% if profile.image %}
+                <img src="{{ profile.image.url }}" alt="Profile photo" class="avatar" id="avatarImg" />
+              {% else %}
+                <img src="{% static 'images/default.png' %}" alt="Profile photo" class="avatar" id="avatarImg" />
+              {% endif %}
+          </a>
+        </div>
+        <div class="author-content">
+          <h4>{{ user.username }}</h4>
+          <span>{{ profile.specialty }}</span>
+        </div>
+        <nav class="main-nav" role="navigation">
+          <ul class="main-menu">
+            {% if user.is_authenticated %}
+              <li><a href="{% url 'profile' %}">profile</a></li>
+              <li><a href="{% url 'logout' %}">logout</a></li>
+            {% else %}
+              <li><a href="{% url 'signin' %}">Signin</a></li>
+              <li><a href="{% url 'signup' %}">Signup</a></li>
+            {% endif %}
+          </ul>
+        </nav>
+        <div class="social-network">
+          <ul class="soial-icons" style="color: #FFF">
+            <li>
+              Back-End Development : <a href="https://github.com/Kia-Aalam"><i class="fa fa-code"></i></a>
+            </li>
+              <br>
+            <li>
+              Design : <a href="https://templatemo.com"><i class="fa fa-paint-brush"></i></a>
+            </li>
+          </ul>
+        </div>
+        <div class="copyright-text">
+          <p>Copyright 2026 | Kia Aalam</p>
+        </div>
+      </div>
+    </div>
+</div>

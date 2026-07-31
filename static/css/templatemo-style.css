@@ -139,7 +139,8 @@ html {
     width: 140px;
     height: 140px;
     border-radius: 50%;
-    text-align: center;
+    display: block;
+    margin: 0 auto;
 }
 
 .menu .author-content {
