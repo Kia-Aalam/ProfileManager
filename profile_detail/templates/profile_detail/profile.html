@@ -26,10 +26,6 @@
                 <img src="{% static 'images/default.png' %}" alt="Profile photo" class="avatar" id="avatarImg" />
             {% endif %}
 
-            <input type="file" id="avatarInput" accept="image/*" hidden>
-            <button type="button" class="avatar-edit" id="avatarEditBtn" aria-label="Change photo">
-                <i class="fa fa-camera"></i>
-            </button>
           </div>
           <div class="header-text">
             <h1 id="profileName">{{ user.username }}</h1>
@@ -63,16 +59,6 @@
               </ul>
             </div>
 
-            <!-- coming version 2
-            <div class="glass-box">
-              <h3>Social</h3>
-              <ul class="social-list">
-                <li><a href="#"><i class="fa fa-facebook"></i> Facebook</a></li>
-                <li><a href="#"><i class="fa fa-twitter"></i> Twitter</a></li>
-                <li><a href="#"><i class="fa fa-linkedin"></i> LinkedIn</a></li>
-              </ul>
-            </div>
-            -->
           </div>
         </div>
 
@@ -80,9 +66,20 @@
 
         <!-- SETTINGS -->
         <div class="tab-panel active" data-panel="settings">
-          <form class="glass-box settings-form" id="settingsForm" method="post">
+          <form class="glass-box settings-form" id="settingsForm" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <h3>Edit profile</h3>
+               <div class="avatar-wrap">
+                    {% if profile.image %}
+                        <img src="{{ profile.image.url }}" class="avatar" id="avatarImg">
+                    {% else %}
+                        <img src="{% static 'images/default.png' %}" class="avatar" id="avatarImg">
+                    {% endif %}
+                    <input type="file" id="avatarInput" name="image" accept="image/*" hidden>
+                    <button type="button" id="avatarEditBtn" class="avatar-edit">
+                        <i class="fa fa-camera"></i>
+                    </button>
+               </div>
             <div class="settings-grid">
               <div class="field">
                 <label for="settingsName">User Name</label>

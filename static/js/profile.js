@@ -111,9 +111,3 @@
   });
 })();
 
-const avatarBtn = document.getElementById("avatarEditBtn");
-const avatarInput = document.getElementById("avatarInput");
-
-avatarBtn.addEventListener("click", function () {
-    avatarInput.click();
-});

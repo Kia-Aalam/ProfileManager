@@ -16,7 +16,7 @@ def profile(request):
         profile.bio = request.POST.get("bio", "")
 
         if request.FILES.get("image"):
-            profile.image = request.FILES["image"]
+            profile.image = request.FILES.get("image")
 
         profile.save()
 

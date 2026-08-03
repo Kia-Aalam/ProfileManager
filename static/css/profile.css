@@ -119,6 +119,7 @@
   width: auto;
   padding: 0 22px;
   margin-bottom: 8px;
+  margin-left: 240px;
 }
 
 .stat-strip {
@@ -376,4 +377,57 @@
   .btn-edit {
     width: 100%;
   }
+}
+
+/* Change Image */
+.avatar-wrap{
+    position: relative;
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 30px;
+}
+
+.avatar{
+    width:100%;
+    height:100%;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid #fff;
+    box-shadow:0 10px 30px rgba(0,0,0,.18);
+    transition:.3s;
+}
+
+.avatar-wrap:hover .avatar{
+    filter:brightness(.75);
+}
+
+.avatar-edit{
+    position:absolute;
+    left:50%;
+    bottom:12px;
+    transform:translateX(-50%);
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:10px 18px;
+    border:none;
+    border-radius:30px;
+    background:rgba(0,0,0,.75);
+    color:#fff;
+    cursor:pointer;
+    opacity:0;
+    transition:.25s;
+    backdrop-filter:blur(10px);
+}
+
+.avatar-wrap:hover .avatar-edit{
+    opacity:1;
+}
+
+.avatar-edit i{
+    font-size:15px;
+}
+
+.avatar-edit:hover{
+    background:#2563eb;
 }
