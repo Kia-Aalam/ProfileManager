@@ -28,6 +28,7 @@ https://templatemo.com/tm-531-reflux
     <link rel="stylesheet" href="{% static 'css/owl.css' %}" />
     <link rel="stylesheet" href="{% static 'css/lightbox.css' %}" />
     <link rel="stylesheet" href="{% static 'css/auth-common.css' %}" />
+    <link rel="stylesheet" href="{%  static 'css/profile.css' %}" />
     {% block css_link %}
     {% endblock %}
   </head>
@@ -70,24 +71,23 @@ https://templatemo.com/tm-531-reflux
     <script src="{% static 'js/owl-carousel.js' %}"></script>
     <script src="{% static 'js/lightbox.js' %}"></script>
     <script src="{% static 'js/custom.js' %}"></script>
-  <script>
+    <script>
     const avatarBtn = document.getElementById("avatarEditBtn");
     const avatarInput = document.getElementById("avatarInput");
     const avatarImg = document.getElementById("avatarImg");
-    
-    // باز شدن فایل منیجر
+
     avatarBtn.addEventListener("click", () => {
-    avatarInput.click();
+        avatarInput.click();
     });
 
-    // نمایش پیش‌نمایش عکس
     avatarInput.addEventListener("change", function () {
-    const file = this.files[0];
+        const file = this.files[0];
 
-    if (file) {
-    avatarImg.src = URL.createObjectURL(file);
-    }
+        if (file) {
+        avatarImg.src = URL.createObjectURL(file);
+        }
     });
-  </script>
+    </script>
+
   </body>
 </html>
